@@ -1,0 +1,9 @@
+.add-item-page{
+    margin-top: 30px;
+}
+
+.add-item-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

@@ -22,7 +22,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/inventory' element={<Inventory inventoryData={inventoryData}/>}>
-          <Route path='content' element={<Content />}/>
+          <Route path='content' element={<Content/>}/>
           <Route path="add" element={<AddNewItem setInventoryData={setInventoryData}/>}/>
           <Route path="edit" element={<EditItem/>}/>
           <Route path="delete" element={<DeleteItem/>}/>

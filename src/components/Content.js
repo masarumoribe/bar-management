@@ -4,15 +4,31 @@ function Content({inventoryData}) {
     console.log(inventoryData)
     return(
         <div className='main-content'>
-            <h1>Inventory Items</h1>
-            {inventoryData && inventoryData.length > 0 ? <h1>{inventoryData[0].name}</h1>: "Nothing"}
-            <ul>
-                {inventoryData.map(invItem => {
+            {inventoryData && inventoryData.length > 0 ? <h1>Inventory Items</h1>: <h1>No invetory items</h1>}
+            <table className='invTable'>
+                <thead className='invTableHead'>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Unit</th>
+                        <th>Cost</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {inventoryData.map(invItem => {
                 return (
-                    <li>{invItem.name}</li>
+                    <tr key={invItem.id}>
+                        <td>{invItem.name}</td>
+                        <td>{invItem.category}</td>
+                        <td>{invItem.unit}</td>
+                        <td>{invItem.cost}</td>
+                        <td>{invItem.quantity}</td>
+                    </tr>
                     )
                 })}
-            </ul>
+                </tbody>
+            </table>
         </div>
     )
 }

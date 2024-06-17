@@ -1,0 +1,36 @@
+.main-content{
+    margin-left: 30%;
+    font-size: large;
+    color: #c1bace;
+    margin-right: 20px;
+}
+
+.invTable{
+    width: 100%;
+    border: 1px solid;
+    border-radius: 25px;
+    border-collapse: collapse;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.invTable thead{
+    height: 50px;
+    text-align: left;
+    background-color: #C1BACE;
+    color: black;
+}
+
+.invTable th,
+.invTable td{
+    padding: 10px 15px;
+    color: black;
+}
+
+.invTable tbody tr:nth-of-type(even){
+    background-color: #C1BACE;
+}
+
+.invTable tbody tr:nth-of-type(odd) {
+    background-color: #A69CB9;
+}

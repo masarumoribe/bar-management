@@ -1,10 +1,20 @@
+import axios from 'axios'
+import { useEffect, useState } from 'react';
 import './Content.css'
 
 function Content({inventoryData}) {
-    console.log(inventoryData)
+
+    const [inventoryItemsList, setInventoryItemsList] = useState([])
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/inventory").then((response) => {
+            setInventoryItemsList(response.data)
+        })
+    })
+
     return(
         <div className='main-content'>
-            {inventoryData && inventoryData.length > 0 ? <h1>Inventory Items</h1>: <h1>No invetory items</h1>}
+            {inventoryItemsList && inventoryItemsList.length > 0 ? <h1>Inventory Items</h1>: <h1>No invetory items</h1>}
             <table className='invTable'>
                 <thead>
                     <tr>
@@ -16,7 +26,7 @@ function Content({inventoryData}) {
                     </tr>
                 </thead>
                 <tbody>
-                    {inventoryData.map(invItem => {
+                    {inventoryItemsList.map(invItem => {
                 return (
                     <tr key={invItem.id}>
                         <td>{invItem.name}</td>

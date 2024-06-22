@@ -1,6 +1,7 @@
 // import { useLocation } from 'react-router-dom';
 import './AddNewItem.css'
 import { useState } from 'react';
+import axios from 'axios';
 
 function AddNewItem({setInventoryData}) {
 
@@ -35,15 +36,18 @@ function AddNewItem({setInventoryData}) {
             e.stopPropagation();
             validate();
         } else {
-            const newItem = {
-            ...formData,
-            id: Date.now().toString()
-        }
-        setInventoryData((currentInventoryData) =>{
-            return [
-                ...currentInventoryData,
-                newItem
-            ]
+        //     const newItem = {
+        //     ...formData,
+        //     id: Date.now().toString()
+        // }
+        // setInventoryData((currentInventoryData) =>{
+        //     return [
+        //         ...currentInventoryData,
+        //         newItem
+        //     ]
+        // })
+        axios.post("http://localhost:3001/inventory", formData).then((response) => {
+            console.log("IT FUCKING WORKED!!!")
         })
         setFormData({
             name: '',

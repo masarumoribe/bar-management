@@ -10,6 +10,8 @@ const db = require('./models')
 // Routers
 const inventoryRouter = require('./routes/InventoryRoutes')
 app.use("/inventory", inventoryRouter)
+const usersRouter = require('./routes/Users')
+app.use("/auth", usersRouter)
 
 db.sequelize.sync().then(() => {
     app.listen(3001, () => {

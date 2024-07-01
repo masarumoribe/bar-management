@@ -7,6 +7,8 @@ import Content from './components/Content';
 import Home from './components/Home';
 import Inventory from './components/Inventory';
 import Recipes from './components/Recipes';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -28,6 +30,8 @@ function App() {
           <Route path="delete" element={<DeleteItem/>}/>
         </Route>
         <Route path='/recipes' element={<Recipes />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
       </Routes>
     </>
   );

@@ -46,8 +46,16 @@ function AddNewItem({setInventoryData}) {
         //         newItem
         //     ]
         // })
-        axios.post("http://localhost:3001/inventory", formData).then((response) => {
-            console.log("IT FUCKING WORKED!!!")
+        axios.post("http://localhost:3001/inventory", formData, {
+            headers: {
+                accessToken: sessionStorage.getItem("accessToken"),
+            }
+        }).then((response) => {
+            if (response.data.error) {
+                console.log(response.data.error)
+            } else {
+                console.log("IT FUCKING WORKED!!!")
+            }
         })
         setFormData({
             name: '',
